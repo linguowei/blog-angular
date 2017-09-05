@@ -12,7 +12,7 @@ const resolve = file => path.resolve(__dirname, file)
 const app = new Koa()
 
 app.use(staticCache({
-  dir: resolve('../../dist'),
+  dir: resolve('./dist'),
   maxAge: 365 * 24 * 60 * 60,
   gzip: true
 }))
