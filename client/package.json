@@ -4,8 +4,8 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "ng serve --proxy-config proxy.config.json --host 192.168.200.168",
+    "build": "ng build --prod --aot",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -22,6 +22,9 @@
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
     "core-js": "^2.4.1",
+    "gitment": "0.0.3",
+    "highlight.js": "^9.12.0",
+    "marked": "^0.3.6",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14"
   },

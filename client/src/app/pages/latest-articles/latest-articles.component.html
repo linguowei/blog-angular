@@ -1,0 +1,8 @@
+<div class="latest-articles">
+  <ul class="articles-list">
+    <li *ngFor="let item of articleList">
+      <h3 class="time">{{item.date | date:"yyyy-MM-dd"}}</h3>
+      <h2 class="articles-title" (click)="viewArticle(item)">{{item.title}}</h2>
+    </li>
+  </ul>
+</div>

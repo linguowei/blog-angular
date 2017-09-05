@@ -1,0 +1,188 @@
+@import '../../../assets/gitment/default.css';
+.view-article{
+  max-width: 700px;
+  margin: 0px auto 0 auto;
+  padding: 60px 30px 50px;
+  position: relative;
+  h1{
+    font-size: 26px;
+    margin: 0 0 45px;
+    letter-spacing: 1px;
+    font-weight: 400;
+    color: #444;
+    text-align: center;
+  }
+  p{
+    text-align: center;
+    font-family: "Montserrat", "Helvetica Neue", "Hiragino Sans GB", "LiHei Pro", Arial, sans-serif;
+    font-size: 13px;
+    color: #999;
+    margin: 0 0 30px;
+    letter-spacing: 1px;
+    span{
+      display: inline-block;
+      padding: 3px 6px;
+      border-radius: 3px;
+      border: 1px solid #ccc;
+      margin-left: 30px;
+    }
+  }
+  .content{
+    line-height: 1.8em;
+    font-family: "Roboto", "Helvetica Neue", "Hiragino Sans GB", "LiHei Pro", Arial, serif;
+    text-rendering: optimizelegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    font-size: 16px;
+    word-spacing: 1px;
+    color: #666;
+    border-bottom: 1px solid #e6e6e6;
+    blockquote {
+      margin: 2em 0;
+      padding-left: 15px;
+      border-left: 5px solid #e6e6e6;
+      // background-color: #f6f6f6;
+      p{
+        font-size: 14px;
+        font-style: italic;
+        line-height: 1.8em;
+        color: #999;
+      }
+    }
+    strong{
+      font-weight: 600;
+    }
+    p{
+      margin: 1em 0 1.5em;
+      color: #666;
+      font-weight: 400;
+      font-size: 16px;
+      word-spacing: 1px;
+      text-align: left;
+      max-width: 100%;
+      overflow: hidden;
+      a{
+        color: #3db8c1;
+        cursor: pointer;
+        &:hover{
+          border-bottom: 2px solid #3db8c1;
+        }
+      }
+      code{
+        font-size: 13px;
+        background-color: #f6f6f6;
+        padding: 3px 10px;
+        margin: 0 5px;
+        border-radius: 2px;
+        max-width: 100%;
+      }
+      img{
+        max-width: 100%;
+        margin: 20px auto;
+        display: block;
+        box-shadow: 0px 0px 7px #d4d4d4;
+        border-radius: 3px;
+      }
+    }
+    pre{
+      border-radius: 2px;
+      font-size: 13px;
+      overflow-x: auto;
+      text-align: left;
+      padding: 15px 25px;
+      background-color: #f6f6f6;
+      line-height: 1.5em;
+      color: #525252;
+      margin: 13px 0;
+      code{
+        .hljs-function{
+          color: #0092db;
+        }
+        .hljs-keyword{
+          color: #e96900;
+        }
+        .hljs-title{
+          color: #bc5679;
+        }
+        .hljs-params{
+          color: #8cc474;
+        }
+        .hljs-comment{
+          color: #b3b3b3;
+        }
+        .hljs-string{
+          color: #42b983;
+        }
+        .hljs-number{
+          color: #ae81ff;
+        }
+        .hljs-literal{
+          color: teal;
+        }
+        .hljs-selector-class{
+          color: #6597f0;
+        }
+      }
+    }
+    ul{
+      padding-left: 35px;
+      display: block;
+      list-style-type: disc;
+      margin: 10px 0;
+      li{
+        margin-bottom: .6rem;
+        list-style: inherit;
+      }
+    }
+    h1{
+      font-weight: 400; 
+      color: #444;
+    }
+    h2{
+      font-weight: 400;
+      color: #444;
+    }
+    h3{
+      font-weight: 400;
+      color: #444;
+      
+    }
+    h4{
+      font-weight: 400;
+      color: #444;
+    }
+    h5{
+      font-weight: 400;
+      color: #444;
+    }
+    h6{
+      font-weight: 400;
+      color: #444;
+    }
+  }
+}
+
+.comment{
+  max-width: 700px;
+  margin: 0px auto 0 auto;
+  padding: 0 30px 50px;
+}
+
+// 如果屏幕小于768px
+@media screen and (max-width: 768px) {
+  .view-article{
+    padding: 45px 20px 50px;
+    h1{
+      font-size: 20px;
+      margin: 0 0 20px;
+    }
+    .content{
+      line-height: 1.6em;
+      font-size: 14px;
+      pre{
+        padding: 5px 15px;
+      }
+    }
+  }
+}

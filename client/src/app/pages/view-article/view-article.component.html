@@ -1,0 +1,9 @@
+<div class="view-article">
+  <h1>{{articleDetail['title']}}</h1>
+  <p>{{articleDetail['date'] | date:"yyyy-MM-dd HH:mm:ss"}} <span>{{articleDetail['label']}}</span></p>
+  <div class="content" [innerHTML]="articleDetail['articleContent']">
+  </div>
+</div>
+<div class="comment">
+  <div class="gitment_id"></div>
+</div>

@@ -1,0 +1,73 @@
+.about{
+  max-width: 600px;
+  margin: 0px auto;
+  padding: 0 30px 50px;
+  position: relative;
+  .about-item{
+    margin: 35px 0;
+    .about-name{
+      border-bottom: 3px solid #3db8c1;
+      display: inline;
+      padding: 5px;
+      font-weight: 600;
+      color: #444;
+    }
+    p{
+      margin-top: 20px;
+      padding-left: 10px;
+      font-size: 16px;
+      color: #444;
+      font-weight: 400;
+      letter-spacing: 1px;
+      a{
+        color: #3db8c1;
+        &:hover{
+          border-bottom: 2px solid #3db8c1;
+        }
+      }
+    }
+    ul{
+      margin-top: 20px;
+      padding-left: 10px;
+      font-size: 16px;
+      color: #444;
+      font-weight: 400;
+      letter-spacing: 1px;
+      a{
+        color: #3db8c1;
+        &:hover{
+          border-bottom: 2px solid #3db8c1;
+        }
+      }
+    }
+  }
+  
+}
+
+// 如果屏幕小于768px
+@media screen and (max-width: 768px) {
+  .about{
+    padding-top: 75px;
+    .about-item{
+      p{
+        margin-top: 20px;
+        padding-left: 10px;
+        font-size: 14px;
+        color: #444;
+        font-weight: 400;
+        letter-spacing: 1px;
+      }
+      ul{
+        margin-top: 20px;
+        padding-left: 10px;
+        font-size: 14px;
+        color: #444;
+        font-weight: 400;
+        letter-spacing: 1px;
+        a{
+          color: #3db8c1;
+        }
+      }
+    }
+  }
+}

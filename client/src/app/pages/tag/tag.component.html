@@ -1,0 +1,11 @@
+<div class="tag">
+  <div class="tag-item" *ngFor="let item of tagList" >
+    <h2 class="tag-name">{{item.name}}</h2>
+    <ul class="article-list">
+      <li *ngFor="let item of item.data" (click)="viewArticle(item)">
+        <h3>{{item.date | date:"yyyy-MM-dd"}}</h3>
+        <h2>{{item.title}}</h2> 
+      </li>
+    </ul>
+  </div>
+</div>
