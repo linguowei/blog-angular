@@ -1,4 +1,31 @@
 @import '../../../assets/gitment/default.css';
+@keyframes zomg {
+  0%, 100% {
+    color: #7ccdea;
+    border-bottom: 2px solid #7ccdea;
+  }
+  16% {
+    color: #0074D9;
+    border-bottom: 2px solid #0074D9;
+  }
+  32% {
+    color: #2ECC40;
+    border-bottom: 2px solid #2ECC40;
+  }
+  48% {
+    color: #FFDC00;
+    border-bottom: 2px solid #FFDC00;
+  }
+  64% {
+    color: #B10DC9;
+    border-bottom: 2px solid #B10DC9;
+  }
+  80% {
+    color: #FF4136;
+    border-bottom: 2px solid #FF4136;
+  }  
+}
+
 .view-article{
   max-width: 700px;
   margin: 0px auto 0 auto;
@@ -51,7 +78,8 @@
       }
     }
     strong{
-      font-weight: 600;
+      font-weight: bold;
+      font-size: 15px;
     }
     p{
       margin: 1em 0 1.5em;
@@ -65,8 +93,10 @@
       a{
         color: #3db8c1;
         cursor: pointer;
+        // transition: color .3s ease-in-out;
         &:hover{
           border-bottom: 2px solid #3db8c1;
+          // animation: zomg 3s infinite;
         }
       }
       code{

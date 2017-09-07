@@ -6,9 +6,9 @@
   .tag-item{
     margin: 35px 0;
     .tag-name{
-      border-bottom: 3px solid #3db8c1;
+      border-left: 5px solid #3db8c1;
       display: inline;
-      padding: 5px;
+      padding-left: 10px;
       font-weight: 600;
       color: #444;
     }
@@ -29,7 +29,7 @@
           letter-spacing: 1px;
         }
         h2{
-          font-size: 20px;
+          font-size: 16px;
           margin-left: 120px;
           color: #444;
           font-weight: 400;
