@@ -9,12 +9,13 @@ const articleSchema = new db.Schema({
 })
 
 const tagSchema = new db.Schema({
-  name: String
+  tagName: String,
+  tagNumber: Number,
 })
 
 const Models = {
   Article: db.model('Article', articleSchema),
-  Tag: db.model('Tag', tagSchema)
+  Tag: db.model('TagList', tagSchema)
 }
 
 module.exports = Models
