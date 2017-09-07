@@ -1,3 +1,25 @@
-<p>
-  add works!
-</p>
+<div class="add-article-wrap">
+  <div class="add-article-title">
+    <input type="text" placeholder="请输入文章标题" [(ngModel)]="title">
+  </div>
+  <div class="add-article-toolbar">
+    <div class="add-article-toolbar-label">
+      <div class="add-article-toolbar-dropdown">
+        <app-dropdown [Label]="'标签'" [DropdownMenu]="dropdownMenu" (SelectItem)="selectItem($event)"></app-dropdown>
+      </div>
+      <ul class="tag-list-wrap">
+        <li class="tag-item" *ngFor="let item of tagList; let i=index">
+          <div>{{item.tagName}}</div>
+          <i class="ion-close-round" (click)="delectLabelItem(i)"></i>
+        </li>
+      </ul>
+    </div>
+    <div class="add-article-toolbar-btn">
+      <app-button [Icon]="'ion-checkmark-circled'" (click)="save('publish')">发布</app-button>
+      <app-button [Icon]="'ion-android-drafts'" (click)="save('draft')">保存草稿</app-button>
+    </div>
+  </div>
+  <div myMarkdownEditor (MarkdownEditorValue)="markdownValueChange($event)">
+    <textarea style="display:none"></textarea>
+  </div> 
+</div>

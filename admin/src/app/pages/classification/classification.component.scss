@@ -1,0 +1,94 @@
+.classification-wrap{
+  margin: 0 3rem;
+  padding: 1rem;
+
+  .tabs{
+    max-width: 100%;
+    overflow: auto;
+    border-bottom: 1px solid #d9d9d9;
+    display: flex;
+    &::-webkit-scrollbar{
+      width: 0px;
+      height: 0px;
+    };
+    li{
+      font-size: 14px;
+      line-height: 1.5;
+      padding: 10px 15px;
+      text-align: center;
+      cursor: pointer;
+      color: #919191;
+      white-space: nowrap;
+      &:hover{
+        color: #404040;
+      }
+    };
+    .tab-active{
+      border-bottom: 2px solid #ccc;
+      color: #404040;
+    }
+  };
+
+  .tab-content{
+    transition: opacity 1s;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: flex-start;
+    width: 100%;
+    &::-webkit-scrollbar{
+      width: 0px;
+    }
+    .note-item{
+      width: 28%;
+      height: 180px;
+      background-color: #fff;
+      box-shadow: 0 1px 6px #ccc;
+      border-radius: 3px;
+      margin: 1% 1%;
+      padding: 1%;
+      text-align: center;
+      .title{
+        font-size: 16px;
+        color: #484848;
+        cursor: pointer;
+        height: 24px;
+        max-height: 24px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+      .date{
+        color: #aaa;
+        font-size: 12px;
+        padding: 10px 0;
+        border-bottom: 1px dashed #ddd;
+      }
+      .content{
+        text-align: left;
+        padding: 10px 0;
+        color: #666;
+        height: 5rem;
+        max-height: 5rem;
+        line-height: 1.2rem;
+        margin-bottom: 1rem;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 5;
+        overflow: hidden;
+      }
+      &:hover{
+        cursor: pointer;
+        transform: scale(1.02, 1.02)
+      }
+    }
+    .tip{
+      width: 100%;
+      text-align: center;
+      font-size: 30px;
+      color: #ccc;
+      margin-top: 20vh;
+    }
+  }
+}

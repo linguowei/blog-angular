@@ -1,3 +1,24 @@
-<p>
-  classification works!
-</p>
+<div class="classification-wrap">
+  <ul class="tabs">
+    <li [class.tab-active]="tabIsActive" (click)="all()">全部</li>
+    <li *ngFor="let item of tagList; let i=index" (click)="tabClick(item)" [class.tab-active]="item.tabIsActive">
+      {{item.tagName}}
+    </li>
+  </ul>
+  <div class="tab-content" classificationTabsContentHeight>
+    <div class="note-item" *ngFor="let item of currentNoteList">
+      <div class="title" (click)="viewNote(item)">
+        {{item.title}}
+      </div>
+      <div class="date">
+        {{item.date | date:"yyyy-MM-dd HH:mm:ss"}}
+      </div>
+      <div class="content">
+        {{item.articleContent | articleContent}}
+      </div>
+    </div>
+    <div class="tip" *ngIf="currentNoteList.length===0" >
+      该标签分类下暂无内容
+    </div>
+  </div>
+</div>

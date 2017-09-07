@@ -1,3 +1,48 @@
-<p>
-  view works!
-</p>
+<div class="view-wrap" #viewNotewrap>
+  <div class="view-title">
+      {{articleInfo.title}}
+  </div>
+  <div class="info">
+    <div class="edit">
+      <i class="ion-compose" (click)="editNote()"></i>
+      <i class="ion-trash-a" (click)="delect()"></i>
+    </div>
+    <div class="time">
+      {{articleInfo.date | date:"yyyy-MM-dd HH:mm:ss"}}
+    </div>
+    <ul class="tag">
+      <li>
+        {{articleInfo.label[0].tagName}}
+      </li>
+    </ul>
+    <span class="state">{{articleInfo.state | articleState}}</span>
+  </div>
+  <div class="preview"></div> 
+</div>
+
+<div class="catalog-wrap">
+  <h3>目录</h3>
+  <ul>
+    <li *ngFor="let item of catalog" [className]="item.tagName" [class.active]="item.isActive">
+      <a (click)="catalogNavigation(item)">{{item.text}}</a>
+    </li>
+  </ul>
+</div>
+
+<div class="delect-wrap" *ngIf="isShowDelect">
+  <div class="delect-content">
+    <div class="icon">
+      <i class="ion-trash-a"></i>  
+    </div>
+    <div class="text">
+      删除笔记
+    </div>
+    <div class="tip">
+      确定删除<em>《{{articleInfo.title}}》</em>文章吗？
+    </div>
+    <div class="btn">
+      <button class="cancel" (click)="cancel()">取消</button>
+      <button class="delete" (click)="confirmDelete()">删除</button>
+    </div>
+  </div>
+</div>

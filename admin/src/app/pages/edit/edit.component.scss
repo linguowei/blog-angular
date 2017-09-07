@@ -1,0 +1,94 @@
+@import '../../directives/markdown-editor/simplemde.min.scss'; 
+.edit-wrap {
+  margin: 15px 10%;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 0 1px 6px #ccc;
+  border-radius: 3px;
+}
+.editor-toolbar{
+  color: #ccc;
+}
+.edit-title{
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  input{
+    text-align: center;
+    width: 100%;
+    height: 30px;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    color:#4e4e4e;
+  }
+}
+::-webkit-input-placeholder { /* WebKit browsers */
+  color:#999;
+}
+.edit-toolbar{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #ececec;
+}
+.edit-toolbar-label{
+  width: 60%;
+  height: 32px;
+  line-height: 32px;
+}
+.edit-toolbar-dropdown{
+  width: 150px;
+  float: left;
+  padding-top: 8px;
+}
+.tag-list-wrap{
+  width: 70%;
+  max-width: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  height: 32px;
+  max-height: 32px;
+  overflow: scroll;
+  &::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+  }
+  .tag-item{
+    height: 25px;
+    line-height: 25px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 3px 3px;
+    display: flex;
+    flex-wrap: wrap;
+    cursor: pointer;
+    div{
+      line-height: 25px;
+      padding: 0 14px;
+    };
+    i{
+      line-height: 25px;
+      padding: 0 6px;
+      border-left: 1px solid #ccc;
+      font-size: 12px;
+      color: #ccc;
+    };
+    i:hover{
+      color: #808b96;
+    }
+    &:hover{
+      box-shadow: 1px 1px 4px rgba(0,0,0,.2);
+    }
+  }
+}
+.edit-toolbar-btn{
+  width: 40%;
+  align-self: flex-end;
+  app-button{
+    float: right;
+    margin-left: 5px;
+  }
+}

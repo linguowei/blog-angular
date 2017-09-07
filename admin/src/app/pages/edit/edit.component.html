@@ -1,3 +1,26 @@
-<p>
-  edit works!
-</p>
+<div class="edit-wrap">
+  <div class="edit-title">
+    <input type="text" placeholder="请输入文章标题" [(ngModel)]="title">
+  </div>
+  <div class="edit-toolbar">
+    <div class="edit-toolbar-label">
+      <div class="edit-toolbar-dropdown">
+        <app-dropdown [Label]="'标签'" [DropdownMenu]="dropdownMenu" (SelectItem)="selectItem($event)"></app-dropdown>
+      </div>
+      <ul class="tag-list-wrap">
+        <li class="tag-item" *ngFor="let item of tagList; let i=index">
+          <div>{{item.tagName}}</div>
+          <i class="ion-close-round" (click)="delectLabelItem(i)"></i>
+        </li>
+      </ul>
+    </div>
+    <div class="edit-toolbar-btn">
+        <app-button [Icon]="'ion-checkmark-circled'" (click)="save('publish')">发布</app-button>
+      <app-button [Icon]="'ion-android-drafts'" (click)="save('draft')">保存草稿</app-button>
+      <app-button [Icon]="'ion-reply'" (click)="cancel()">取消</app-button>
+    </div>
+  </div>
+  <div myMarkdownEditor [inputMarkdownEditorValue]="articleInfo.articleContent" (MarkdownEditorValue)="markdownValueChange($event)">
+    <textarea style="display:none"></textarea>
+  </div> 
+</div>
