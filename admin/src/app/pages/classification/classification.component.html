@@ -12,6 +12,7 @@
       </div>
       <div class="date">
         {{item.date | date:"yyyy-MM-dd HH:mm:ss"}}
+        <span class="state">{{item.state | articleState}}</span>
       </div>
       <div class="content">
         {{item.articleContent | articleContent}}

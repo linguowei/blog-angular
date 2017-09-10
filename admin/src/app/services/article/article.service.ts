@@ -31,7 +31,7 @@ export class ArticleService {
   _updateAllArticle() {
     this.http.get('/api/admin/articleList')
       .subscribe((data) => {
-        this.allNote$.next(data['data']);
+        this.allNote$.next(data['data'].reverse());
       });
   }
 

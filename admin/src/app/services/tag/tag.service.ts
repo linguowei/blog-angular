@@ -35,7 +35,7 @@ export class TagService {
   _updateTagList() {
     this.http.get('/api/admin/tagList')
       .subscribe((res) => {
-        this.tagList$.next(res['data']);
+        this.tagList$.next(res['data'].reverse());
       });
   }
 

@@ -33,7 +33,7 @@ export class ClassificationComponent implements OnInit, OnDestroy {
     this._activeFalse();
 
     this.allArticleSub = this.articleService.allNote$.subscribe((data) => {
-      this.allArticle = data.reverse();
+      this.allArticle = data;
       this.currentNoteList = data;
     });
   }

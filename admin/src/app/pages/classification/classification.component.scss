@@ -63,6 +63,10 @@
         font-size: 12px;
         padding: 10px 0;
         border-bottom: 1px dashed #ddd;
+        .state{
+          display: inline-block;
+          margin-left: 5px;
+        }
       }
       .content{
         text-align: left;

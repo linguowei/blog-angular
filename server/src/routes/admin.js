@@ -103,7 +103,7 @@ router.post('/modifyArticle', async (ctx, next) => {
 
 // 获取文章列表数据
 router.get('/articleList', async (ctx, next) => {
-  await DB.Article.find({state: "publish"}, (err, docs) => {
+  await DB.Article.find({}, (err, docs) => {
     if (err) {
       ctx.throw(500)
       return;
