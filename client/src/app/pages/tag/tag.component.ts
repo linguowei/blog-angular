@@ -44,13 +44,17 @@ export class TagComponent implements OnInit, OnDestroy {
         obj[item.label] = item.label;
         arr = [];
         arr.push(item);
-        obj['index'] = i;
+        obj['index'] = this.tagList.length;
         this.tagList.push({
           name: item.label,
           data: arr
         });
       } else {
-        this.tagList[ obj['index'] ].data.push(item);
+        this.tagList.forEach((key, index) => {
+          if (key.name === obj[item.label]) {
+            this.tagList[index].data.push(item);
+          }
+        });
       }
     });
   }
