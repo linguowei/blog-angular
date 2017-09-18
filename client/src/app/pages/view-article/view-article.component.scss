@@ -90,6 +90,9 @@
       text-align: left;
       max-width: 100%;
       overflow: hidden;
+      video{
+        width: 100%;
+      }
       a{
         color: #3db8c1;
         cursor: pointer;
@@ -163,6 +166,15 @@
       li{
         margin-bottom: .6rem;
         list-style: inherit;
+        a{
+          color: #3db8c1;
+          cursor: pointer;
+          // transition: color .3s ease-in-out;
+          &:hover{
+            border-bottom: 2px solid #3db8c1;
+            // animation: zomg 3s infinite;
+          }
+        }
       }
     }
     h1{
