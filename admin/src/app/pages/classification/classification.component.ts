@@ -2,7 +2,19 @@ import { Router } from '@angular/router';
 import { ArticleService } from '../../services/article/article.service';
 import { TagService } from '../../services/tag/tag.service';
 import { Subscription } from 'rxjs/Subscription';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Directive, ElementRef } from '@angular/core';
+
+@Directive({
+  // tslint:disable-next-line:directive-selector
+  selector: '[classificationTabsContentHeight]'
+})
+export class ClassificationTabsContentHeightDirective {
+  constructor(el: ElementRef) {
+    el.nativeElement.style.height = window.innerHeight - 70 + 'px';
+    el.nativeElement.style.maxHeight = window.innerHeight - 70 + 'px';
+    el.nativeElement.style.overflow = 'auto';
+  }
+}
 
 @Component({
   selector: 'app-classification',

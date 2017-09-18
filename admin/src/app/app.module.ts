@@ -13,7 +13,7 @@ import { AddComponent } from './pages/add/add.component';
 import { EditComponent } from './pages/edit/edit.component';
 import { ViewComponent } from './pages/view/view.component';
 import { TagComponent } from './pages/tag/tag.component';
-import { ClassificationComponent } from './pages/classification/classification.component';
+import { ClassificationComponent, ClassificationTabsContentHeightDirective } from './pages/classification/classification.component';
 import { DropdownComponent } from './component/dropdown/dropdown.component';
 import { ButtonComponent } from './component/button/button.component';
 
@@ -44,6 +44,7 @@ import { IndexComponent } from './pages/index/index.component';
     DropdownComponent,
     ButtonComponent,
     MarkdownEditorDirective,
+    ClassificationTabsContentHeightDirective,
     ArticleContentPipe,
     ArticleStatePipe,
     IndexComponent
