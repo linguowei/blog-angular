@@ -44,7 +44,6 @@ export class TagComponent implements OnInit, OnDestroy {
         obj[item.label] = item.label;
         arr = [];
         arr.push(item);
-        obj['index'] = this.tagList.length;
         this.tagList.push({
           name: item.label,
           data: arr
@@ -61,6 +60,6 @@ export class TagComponent implements OnInit, OnDestroy {
 
   viewArticle(data) {
     localStorage.setItem('articleDetail', JSON.stringify(data));
-    this.router.navigate(['/view']);
+    this.router.navigate(['/view', data._id]);
   }
 }

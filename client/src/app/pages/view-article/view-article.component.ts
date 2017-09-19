@@ -1,7 +1,12 @@
+import { style } from '@angular/animations';
+import { Subscription } from 'rxjs/Subscription';
+import { ArticleService } from '../../services/article/article.service';
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit, ViewEncapsulation, OnDestroy } from '@angular/core';
 import marked from 'marked';
 import highlight from 'highlight.js';
 import Gitment from '../../../assets/gitment/gitment.js';
+import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'app-view-article',
@@ -10,15 +15,67 @@ import Gitment from '../../../assets/gitment/gitment.js';
   encapsulation: ViewEncapsulation.None
 })
 export class ViewArticleComponent implements OnInit, OnDestroy {
-  articleDetail = '';
+  articleDetail: ArticleDetail = {
+    articleContent: '',
+    date: '',
+    label: '',
+    state: '',
+    title: '',
+    __v: 0,
+    _id: ''
+  };
+  articleId = '';
+  articleServiceSub: Subscription;
 
-  constructor() { }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private articleService: ArticleService
+  ) { }
 
   ngOnInit() {
+    this.activatedRoute.params.subscribe((params) => {
+      this.articleId = params.id;
+    });
     const topBar = <HTMLElement>document.querySelector('.top-bar');
     topBar.style.display = 'none';
+
     this.articleDetail = JSON.parse(localStorage.getItem('articleDetail'));
-    this.articleDetail['articleContent'] =  marked(this.articleDetail['articleContent'], {
+    if (this.articleDetail === null) {
+      this.articleServiceSub = this.articleService.allArticle$.subscribe((data) => {
+        data.forEach((item: ArticleDetail) => {
+          if (item._id === this.articleId) {
+            this.articleDetail = item;
+            this.renderHighlight();
+            this.renderGitment();
+          }
+        });
+      });
+    } else {
+      this.renderHighlight();
+      this.renderGitment();
+    }
+
+    const progressBar = <HTMLElement>document.querySelector('.progress-bar');
+    document.querySelector('.content').scrollTop = 0;
+    document.querySelector('.content').addEventListener('scroll', () => {
+      const scrollHeight = document.querySelector('.content').scrollHeight - window.innerHeight; // 滚动高度
+      const scrollTop = document.querySelector('.content').scrollTop; // 滚动内容距离顶部的高度
+      const percentage = (scrollTop / scrollHeight) * 100;
+      progressBar.style.width = percentage + 'vw';
+    });
+  }
+
+  ngOnDestroy() {
+    const topBar = <HTMLElement>document.querySelector('.top-bar');
+    topBar.style.display = 'block';
+    if (this.articleDetail instanceof Subscription) {
+      this.articleServiceSub.unsubscribe();
+    }
+  }
+
+  // 语法高亮
+  private renderHighlight() {
+    this.articleDetail.articleContent =  marked(this.articleDetail.articleContent, {
       renderer: new marked.Renderer(),
       gfm: true,
       pedantic: false,
@@ -31,8 +88,10 @@ export class ViewArticleComponent implements OnInit, OnDestroy {
         return highlight.highlightAuto(code).value;
       }
     });
+  }
 
-    // 评论系统
+  // 评论系统
+  private renderGitment() {
     const el = <HTMLElement>document.querySelector('.gitment_id');
     const myTheme = {
       render(state, instance) {
@@ -45,7 +104,7 @@ export class ViewArticleComponent implements OnInit, OnDestroy {
       },
     };
     const gitment = new Gitment({
-      id: this.articleDetail['_id'],
+      id: this.articleDetail._id,
       owner: 'linguowei',
       repo: 'blog-comment',
       oauth: {
@@ -56,10 +115,14 @@ export class ViewArticleComponent implements OnInit, OnDestroy {
     });
     gitment.render(el);
   }
+}
 
-  ngOnDestroy() {
-    const topBar = <HTMLElement>document.querySelector('.top-bar');
-    topBar.style.display = 'block';
-  }
-
+interface ArticleDetail {
+  articleContent: string;
+  date: string;
+  label: string;
+  state: string;
+  title: string;
+  __v: number;
+  _id: string;
 }

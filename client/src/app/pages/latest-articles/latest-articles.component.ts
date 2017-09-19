@@ -40,7 +40,7 @@ export class LatestArticlesComponent implements OnInit, OnDestroy {
 
   viewArticle(data) {
     localStorage.setItem('articleDetail', JSON.stringify(data));
-    this.router.navigate(['/view']);
+    this.router.navigate(['/view', data._id]);
   }
 
 }

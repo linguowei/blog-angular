@@ -211,6 +211,15 @@
   padding: 0 30px 50px;
 }
 
+.progress-bar{
+  height: 3px;
+  width: 0vw;
+  background-color: #3db8c1;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
 // 如果屏幕小于768px
 @media screen and (max-width: 768px) {
   .view-article{
@@ -226,5 +235,9 @@
         padding: 5px 15px;
       }
     }
+  }
+
+  .progress-bar{
+    display: none;
   }
 }

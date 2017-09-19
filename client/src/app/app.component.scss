@@ -36,6 +36,12 @@
   }
 }
 
+.content{
+  height: 100vh;
+  max-height: 100vh;
+  overflow: scroll;
+}
+
 .footer{
   position: fixed;
   right: 20px;

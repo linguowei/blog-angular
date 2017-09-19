@@ -24,7 +24,7 @@ const routes: Routes = [
     component: AboutComponent
   },
   {
-    path: 'view',
+    path: 'view/:id',
     component: ViewArticleComponent
   },
   {
