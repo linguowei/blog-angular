@@ -56,13 +56,16 @@ export class ViewArticleComponent implements OnInit, OnDestroy {
     }
 
     const progressBar = <HTMLElement>document.querySelector('.progress-bar');
-    document.querySelector('.content').scrollTop = 0;
-    document.querySelector('.content').addEventListener('scroll', () => {
-      const scrollHeight = document.querySelector('.content').scrollHeight - window.innerHeight; // 滚动高度
-      const scrollTop = document.querySelector('.content').scrollTop; // 滚动内容距离顶部的高度
+    document.querySelector('.view-article-wrap').scrollTop = 0;
+    document.querySelector('.view-article-wrap').addEventListener('scroll', () => {
+      const scrollHeight = document.querySelector('.view-article-wrap').scrollHeight - window.innerHeight; // 滚动高度
+      const scrollTop = document.querySelector('.view-article-wrap').scrollTop; // 滚动内容距离顶部的高度
       const percentage = (scrollTop / scrollHeight) * 100;
       progressBar.style.width = percentage + 'vw';
     });
+
+    const footer = <HTMLElement>document.querySelector('.footer');
+    footer.style.display = 'none';
   }
 
   ngOnDestroy() {
@@ -71,6 +74,9 @@ export class ViewArticleComponent implements OnInit, OnDestroy {
     if (this.articleDetail instanceof Subscription) {
       this.articleServiceSub.unsubscribe();
     }
+
+    const footer = <HTMLElement>document.querySelector('.footer');
+    footer.style.display = 'block';
   }
 
   // 语法高亮

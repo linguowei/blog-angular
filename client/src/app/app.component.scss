@@ -1,6 +1,6 @@
 .top-bar{
-  width: 100%;
-  height: 124px;
+  // width: 100%;
+  // height: 124px;
   .log{
     width: 124px;
     position: fixed;
@@ -37,12 +37,14 @@
 }
 
 .content{
-  height: 100vh;
-  max-height: 100vh;
-  overflow: scroll;
+  padding-top: 124px;
+  // max-height: 100vh;
+  // overflow: scroll;
+  // -webkit-overflow-scrolling: touch;
 }
 
 .footer{
+  display: block;
   position: fixed;
   right: 20px;
   bottom: 20px;
@@ -80,6 +82,7 @@
       }
       ul{
         overflow: auto;
+        -webkit-overflow-scrolling: touch;
         position: fixed;
         top: 75px;
         width: 100%;
@@ -96,6 +99,10 @@
         }
       }
     }
+  }
+
+  .content{
+    padding-top: 0; 
   }
 
   .footer{

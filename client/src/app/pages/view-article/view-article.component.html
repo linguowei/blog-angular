@@ -1,13 +1,16 @@
-<div class="view-article">
-  <h1>{{articleDetail.title}}</h1>
-  <p>{{articleDetail.date | date:"yyyy-MM-dd HH:mm:ss"}} <span>{{articleDetail.label}}</span></p>
-  <div class="content" [innerHTML]="articleDetail.articleContent">
+<div class="view-article-wrap">
+  <div class="view-article">
+    <h1>{{articleDetail.title}}</h1>
+    <p>{{articleDetail.date | date:"yyyy-MM-dd HH:mm:ss"}} <span>{{articleDetail.label}}</span></p>
+    <div class="content" [innerHTML]="articleDetail.articleContent">
+    </div>
+  </div>
+  <div class="comment">
+    <div class="gitment_id"></div>
+  </div>
+  <div class="view-article-footer">
+    © 2017 WEIWEI BLOG
   </div>
 </div>
-<div class="comment">
-  <div class="gitment_id"></div>
-</div>
 
-<div class="progress-bar">
-  
-</div>
+<div class="progress-bar"></div>
